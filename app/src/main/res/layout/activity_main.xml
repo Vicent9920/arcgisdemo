@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.MainActivity">
+    tools:context="com.vincent.arcgisdemo.ui.MainActivity">
 
     <com.esri.arcgisruntime.mapping.view.MapView
         android:id="@+id/mapView"
@@ -12,4 +12,77 @@
         android:layout_height="match_parent"
         android:background="#ffffff"/>
 
-</FrameLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_marker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:padding="10dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="14dp"
+        android:textColor="#ffffff"
+        android:text="编辑地图"
+        android:background="#99000000"/>
+
+    <Button
+        android:id="@+id/btn_sketch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/btn_marker"
+        android:padding="10dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="14dp"
+        android:textColor="#ffffff"
+        android:text="草图编辑"
+        android:background="#99000000"/>
+
+    <Button
+        android:id="@+id/btn_rest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/btn_sketch"
+        android:padding="10dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="14dp"
+        android:textColor="#ffffff"
+        android:text="重置操作"
+        android:background="#99000000"/>
+
+    <ImageView
+        android:id="@+id/iv_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_column_add"
+        android:layout_above="@+id/line"
+        android:layout_marginStart="14dp"
+        android:padding="10dp"
+        android:background="#99000000"/>
+    <View
+        android:id="@+id/line"
+        android:layout_width="wrap_content"
+        android:layout_height="1px"
+        android:layout_alignStart="@id/iv_add"
+        android:layout_alignEnd="@id/iv_add"
+        android:layout_above="@+id/iv_reduction"
+        android:background="#ffffff"/>
+    <ImageView
+        android:id="@+id/iv_reduction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="14dp"
+        android:padding="10dp"
+        android:layout_marginBottom="24dp"
+        android:src="@drawable/icon_column_reduction"
+        android:background="#99000000"/>
+
+</RelativeLayout>
