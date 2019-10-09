@@ -2,15 +2,18 @@ package com.vincent.arcgisdemo.ui
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.view.MotionEvent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.esri.arcgisruntime.geometry.*
+import com.esri.arcgisruntime.geometry.GeometryEngine
+import com.esri.arcgisruntime.geometry.GeometryType
+import com.esri.arcgisruntime.geometry.Point
+import com.esri.arcgisruntime.geometry.SpatialReference
 import com.esri.arcgisruntime.io.RequestConfiguration
 import com.esri.arcgisruntime.layers.ArcGISTiledLayer
-import com.esri.arcgisruntime.layers.WebTiledLayer
 import com.esri.arcgisruntime.mapping.ArcGISMap
 import com.esri.arcgisruntime.mapping.Basemap
 import com.esri.arcgisruntime.mapping.view.*
@@ -37,6 +40,7 @@ class MainActivity : AppCompatActivity() {
     private var drawType = -1
     // 草图编辑器
     private val mSketchEditor = SketchEditor()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(com.vincent.arcgisdemo.R.layout.activity_main)
@@ -56,17 +60,19 @@ class MainActivity : AppCompatActivity() {
         val url = "https://www.arcgis.com/home/item.html?id=7675d44bb1e4428aa2c30a9b68f97822"
         map.basemap.baseLayers.add(ArcGISTiledLayer(url))
 
-        val webTiledLayer = TianDiTuMethodsClass.CreateTianDiTuTiledLayer(LayerType.TIANDITU_VECTOR_2000)
-        val webTiledLayer1 = TianDiTuMethodsClass.CreateTianDiTuTiledLayer(LayerType.TIANDITU_VECTOR_ANNOTATION_CHINESE_2000)
+        val webTiledLayer =
+            TianDiTuMethodsClass.CreateTianDiTuTiledLayer(LayerType.TIANDITU_VECTOR_2000)
+        val webTiledLayer1 =
+            TianDiTuMethodsClass.CreateTianDiTuTiledLayer(LayerType.TIANDITU_VECTOR_ANNOTATION_CHINESE_2000)
 
         //注意：在100.2.0之后要设置RequestConfiguration
-        val requestConfiguration =  RequestConfiguration()
+        val requestConfiguration = RequestConfiguration()
         requestConfiguration.getHeaders().put("referer", "http://www.arcgis.com");
         webTiledLayer.setRequestConfiguration(requestConfiguration)
         webTiledLayer1.setRequestConfiguration(requestConfiguration)
         webTiledLayer.loadAsync()
         webTiledLayer1.loadAsync()
-        val basemap =  Basemap(webTiledLayer)
+        val basemap = Basemap(webTiledLayer)
         basemap.getBaseLayers().add(webTiledLayer1)
         map.basemap = basemap
         mapView.map = map
@@ -137,6 +143,10 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun initEvent() {
+
+        btn_sceneView.setOnClickListener {
+            startActivity(Intent(this,SceneViewActivity::class.java))
+        }
         // 放大地图
         iv_add.setOnClickListener {
             mapView.setViewpointScaleAsync(mapView.mapScale * 0.5)
@@ -175,6 +185,7 @@ class MainActivity : AppCompatActivity() {
 
             }
                 .show()
+
         }
         btn_rest.setOnClickListener {
             if (drawType != -1) {

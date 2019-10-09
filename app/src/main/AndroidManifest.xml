@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.vincent.arcgisdemo">
-    <!--    网络权限-->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!--    缓存 -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!--    定位 -->
+    <!-- 网络权限 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 缓存 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 定位 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <!--    供应用商店标识App的设备类型-->
-    <uses-feature android:glEsVersion="0x00020000" android:required="true" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 供应用商店标识App的设备类型 -->
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -18,10 +18,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-<!--        <meta-data-->
-<!--            android:name="com.tianditu.apikey"-->
-<!--            android:value="58a2d8db46a9ea6d009aca88bc8d2a53" />-->
-        <activity android:name="com.vincent.arcgisdemo.ui.MainActivity">
+        <activity android:name=".ui.SceneViewActivity"
+            android:label="SceneViewDemo">
+
+        </activity>
+        <!-- <meta-data -->
+        <!-- android:name="com.tianditu.apikey" -->
+        <!-- android:value="58a2d8db46a9ea6d009aca88bc8d2a53" /> -->
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

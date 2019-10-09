@@ -1,88 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.vincent.arcgisdemo.ui.MainActivity">
 
+
     <com.esri.arcgisruntime.mapping.view.MapView
         android:id="@+id/mapView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#ffffff"/>
+        android:layout_height="match_parent">
 
-    <LinearLayout
+
+    </com.esri.arcgisruntime.mapping.view.MapView>
+
+
+    <Button
+        android:id="@+id/btn_sceneView"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/btn_marker"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="14dp"
+        android:background="#99000000"
+        android:padding="10dp"
+        android:text="三维地图"
+        android:textColor="#ffffff" />
 
     <Button
         android:id="@+id/btn_marker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:padding="10dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="14dp"
-        android:textColor="#ffffff"
+        android:background="#99000000"
+        android:padding="10dp"
         android:text="编辑地图"
-        android:background="#99000000"/>
+        android:textColor="#ffffff" />
 
     <Button
         android:id="@+id/btn_sketch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_below="@+id/btn_marker"
-        android:padding="10dp"
+        android:layout_alignParentEnd="true"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="14dp"
-        android:textColor="#ffffff"
+        android:background="#99000000"
+        android:padding="10dp"
         android:text="草图编辑"
-        android:background="#99000000"/>
+        android:textColor="#ffffff" />
 
     <Button
         android:id="@+id/btn_rest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_below="@+id/btn_sketch"
-        android:padding="10dp"
+        android:layout_alignParentEnd="true"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="14dp"
-        android:textColor="#ffffff"
+        android:background="#99000000"
+        android:padding="10dp"
         android:text="重置操作"
-        android:background="#99000000"/>
+        android:textColor="#ffffff" />
 
     <ImageView
         android:id="@+id/iv_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/icon_column_add"
         android:layout_above="@+id/line"
         android:layout_marginStart="14dp"
+        android:background="#99000000"
         android:padding="10dp"
-        android:background="#99000000"/>
+        android:src="@drawable/icon_column_add" />
+
     <View
         android:id="@+id/line"
         android:layout_width="wrap_content"
         android:layout_height="1px"
+        android:layout_above="@+id/iv_reduction"
         android:layout_alignStart="@id/iv_add"
         android:layout_alignEnd="@id/iv_add"
-        android:layout_above="@+id/iv_reduction"
-        android:background="#ffffff"/>
+        android:background="#ffffff" />
+
     <ImageView
         android:id="@+id/iv_reduction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="14dp"
-        android:padding="10dp"
         android:layout_marginBottom="24dp"
-        android:src="@drawable/icon_column_reduction"
-        android:background="#99000000"/>
+        android:background="#99000000"
+        android:padding="10dp"
+        android:src="@drawable/icon_column_reduction" />
 
 </RelativeLayout>
